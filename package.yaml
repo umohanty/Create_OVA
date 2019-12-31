@@ -1,0 +1,31 @@
+manifest-version: 1.0
+
+info:
+  name: ubuntu
+  description: "KVM Ubuntu 14.04 LTS"
+  version: 1.1
+
+app:
+  # Indicate app type (vm, paas, lxc etc.,)
+  apptype: vm
+
+  resources:
+   cpu: 10
+   memory: 3999744
+   vcpu: 4
+
+   disk:
+    - target-dev: hdc
+      file: ubuntu.qcow2
+
+   interfaces:
+    - target-dev: net1
+
+   serial:
+    - console
+    - aux
+
+  # Specify runtime and startup
+  startup:
+    runtime: kvm
+    boot-dev: hd
